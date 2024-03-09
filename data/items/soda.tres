@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://55ks0w5nify"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_85ys6"]
+[ext_resource type="Texture2D" uid="uid://cdevx2nwckao" path="res://assets/items/soda.png" id="2_qryt5"]
+
+[resource]
+script = ExtResource("1_85ys6")
+name = "Off-Brand Soda"
+texture = ExtResource("2_qryt5")
+description = "It tastes... kinda good, actually."
+type = 0
+price = 5
+use_health = 10
+use_mana = 0
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

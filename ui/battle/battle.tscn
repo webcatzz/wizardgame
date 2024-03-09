@@ -1,0 +1,477 @@
+[gd_scene load_steps=31 format=3 uid="uid://bcpqkyw5q0xou"]
+
+[ext_resource type="Theme" uid="uid://du13kuhmpxkka" path="res://Theme.tres" id="1_ptsbo"]
+[ext_resource type="Script" path="res://ui/battle/battle.gd" id="2_21xgq"]
+[ext_resource type="Texture2D" uid="uid://bmeyh04icaoux" path="res://assets/shadow.png" id="3_anf21"]
+[ext_resource type="Shader" path="res://ui/battle/background.gdshader" id="3_evcp0"]
+[ext_resource type="Script" path="res://ui/battle/controls.gd" id="8_sqdkf"]
+[ext_resource type="Texture2D" uid="uid://dxiliwl5b5gyq" path="res://assets/portraits/player.png" id="9_m4m6d"]
+[ext_resource type="Texture2D" uid="uid://433wtvdrvl7n" path="res://assets/battle/player_cast.png" id="10_suy4p"]
+[ext_resource type="Texture2D" uid="uid://v8mfx0wb0jm6" path="res://assets/sparkles_3.png" id="11_ctw7b"]
+[ext_resource type="Texture2D" uid="uid://bso0bir8dobdb" path="res://assets/sparkles_2.png" id="12_qubsp"]
+[ext_resource type="Texture2D" uid="uid://cvrtdwpgkrvw3" path="res://assets/sparkles_1.png" id="13_70y73"]
+[ext_resource type="Script" path="res://ui/battle/timer.gd" id="14_q0135"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aexgq"]
+shader = ExtResource("3_evcp0")
+shader_parameter/screen_height = 313.0
+shader_parameter/amplitude = 0.025
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 1.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(1, -1)
+shader_parameter/scrolling_speed = 0.04
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nol2k"]
+
+[sub_resource type="Gradient" id="Gradient_2roy1"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0, 0, 0.6, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8fair"]
+gradient = SubResource("Gradient_2roy1")
+fill_from = Vector2(0, 0.75)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx867"]
+content_margin_left = 80.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+texture = SubResource("GradientTexture2D_8fair")
+expand_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vasws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8a5ei"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggnv7"]
+
+[sub_resource type="Gradient" id="Gradient_mm3w1"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_07da3"]
+gradient = SubResource("Gradient_mm3w1")
+width = 5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6ims"]
+emission_shape = 3
+emission_box_extents = Vector3(88, 21.5, 0)
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 98, 0)
+initial_velocity_max = 98.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.25
+scale_min = 1.5
+scale_max = 2.5
+color_ramp = SubResource("GradientTexture1D_07da3")
+hue_variation_max = 1.0
+attractor_interaction_enabled = false
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fclwb"]
+frames = 4
+frame_0/texture = ExtResource("11_ctw7b")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("12_qubsp")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("13_70y73")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("12_qubsp")
+frame_3/duration = 0.1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3nvd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjeyo"]
+
+[sub_resource type="Animation" id="Animation_g88hd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:current_tab")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Enemies:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Enemies:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Border:border_width")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
+}
+
+[sub_resource type="Animation" id="Animation_gdvcj"]
+resource_name = "attack"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Border:border_width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.1, 1.2, 1.5, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [32.0, 8.0, 0.5, 256.0, 240.0, 240.0, 32.0]
+}
+
+[sub_resource type="Animation" id="Animation_pjcqq"]
+resource_name = "attacked"
+
+[sub_resource type="Animation" id="Animation_b6ape"]
+resource_name = "enter_spell"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:current_tab")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:show_behind_parent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpellEnterer/Text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Enemies:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Enemies:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwou8"]
+_data = {
+"RESET": SubResource("Animation_g88hd"),
+"attack": SubResource("Animation_gdvcj"),
+"attacked": SubResource("Animation_pjcqq"),
+"enter_spell": SubResource("Animation_b6ape")
+}
+
+[node name="Root" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -156.5
+offset_right = 250.0
+offset_bottom = 156.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ptsbo")
+script = ExtResource("2_21xgq")
+
+[node name="Background" type="TextureRect" parent="."]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_aexgq")
+use_parent_material = true
+layout_mode = 2
+texture = SubResource("PlaceholderTexture2D_nol2k")
+expand_mode = 1
+
+[node name="Border" type="ReferenceRect" parent="."]
+layout_mode = 2
+mouse_filter = 2
+border_color = Color(0, 0, 0, 1)
+border_width = 32.0
+editor_only = false
+
+[node name="Enemies" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 199
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TextureRect" type="TextureRect" parent="Enemies"]
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("3_anf21")
+
+[node name="Separator" type="HBoxContainer" parent="Enemies"]
+layout_mode = 2
+
+[node name="Info" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yx867")
+
+[node name="Separator" type="VBoxContainer" parent="Info"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Name" type="Label" parent="Info/Separator"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+text = "Player"
+
+[node name="Health" type="ProgressBar" parent="Info/Separator"]
+layout_mode = 2
+theme_type_variation = &"HealthBar"
+step = 1.0
+value = 75.0
+
+[node name="Mana" type="ProgressBar" parent="Info/Separator"]
+layout_mode = 2
+theme_type_variation = &"ManaBar"
+step = 1.0
+value = 40.0
+
+[node name="Controls" type="TabContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vasws")
+tabs_visible = false
+script = ExtResource("8_sqdkf")
+
+[node name="ActionSelect" type="Control" parent="Controls"]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Controls/ActionSelect"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 240.261
+grow_vertical = 2
+texture = ExtResource("9_m4m6d")
+expand_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Controls/ActionSelect"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -54.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Attack" type="Button" parent="Controls/ActionSelect/Buttons"]
+layout_mode = 2
+text = "strike..."
+
+[node name="Item" type="Button" parent="Controls/ActionSelect/Buttons"]
+layout_mode = 2
+text = "retrieve..."
+
+[node name="Run" type="Button" parent="Controls/ActionSelect/Buttons"]
+layout_mode = 2
+text = "flee..."
+
+[node name="Inventory" type="MarginContainer" parent="Controls"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="List" type="ItemList" parent="Controls/Inventory"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+max_columns = 3
+fixed_column_width = 140
+
+[node name="SpellEnterer" type="Control" parent="Controls"]
+visible = false
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Controls/SpellEnterer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_suy4p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Text" type="LineEdit" parent="Controls/SpellEnterer"]
+layout_mode = 2
+anchor_left = 0.454
+anchor_top = 0.421725
+anchor_right = 0.804445
+anchor_bottom = 0.568898
+offset_right = 0.777252
+offset_bottom = -3.06508
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0174533
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/caret_color = Color(0.501961, 0.501961, 0.501961, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8a5ei")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ggnv7")
+placeholder_text = "enter spell..."
+alignment = 1
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Particles" type="GPUParticles2D" parent="Controls/SpellEnterer/Text"]
+position = Vector2(88, 21.5)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_f6ims")
+texture = SubResource("AnimatedTexture_fclwb")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+
+[node name="Timer" type="ProgressBar" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5)
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_i3nvd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rjeyo")
+value = 100.0
+show_percentage = false
+script = ExtResource("14_q0135")
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Controls")
+libraries = {
+"": SubResource("AnimationLibrary_iwou8")
+}
+
+[connection signal="pressed" from="Controls/ActionSelect/Buttons/Attack" to="Controls" method="enter_spell"]
+[connection signal="pressed" from="Controls/ActionSelect/Buttons/Item" to="Controls" method="open_inventory"]
+[connection signal="item_activated" from="Controls/Inventory/List" to="Controls" method="item_chosen"]
+[connection signal="text_changed" from="Controls/SpellEnterer/Text" to="Controls/SpellEnterer/Text/Particles" method="restart" unbinds=1]
+[connection signal="text_submitted" from="Controls/SpellEnterer/Text" to="Controls" method="spell_entered"]
+[connection signal="timeout" from="Timer" to="Controls" method="end_action"]

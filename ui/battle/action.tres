@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d20w0fhsoamft"]
+
+[ext_resource type="Script" path="res://ui/battle/action.gd" id="1_7ih41"]
+
+[resource]
+script = ExtResource("1_7ih41")
+type = "attack"
+affinity = "physical"
+value = 0
+actor_type = "party"
+actor_name = ""
+target_type = "enemies"
+target_name = ""
+effect_type = ""
+effect_multiplier = 0.0
+effect_length = 0

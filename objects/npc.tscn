@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://d012ull5grqhg"]
+
+[ext_resource type="Script" path="res://objects/npc.gd" id="1_06wd6"]
+[ext_resource type="Texture2D" uid="uid://dxwcjicffkkxn" path="res://assets/objects/npc.png" id="1_x0uti"]
+[ext_resource type="Texture2D" uid="uid://bmeyh04icaoux" path="res://assets/shadow.png" id="4_06wf7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_71kmu"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8nd3"]
+size = Vector2(16, 16)
+
+[node name="NPC" type="StaticBody2D"]
+script = ExtResource("1_06wd6")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_x0uti")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2(0, 15)
+texture = ExtResource("4_06wf7")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_71kmu")
+
+[node name="Interactor" type="Area2D" parent="."]
+monitoring = false
+
+[node name="Shape" type="CollisionShape2D" parent="Interactor"]
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_x8nd3")

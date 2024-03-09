@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://thvyiinc8pcy"]
+
+[ext_resource type="PackedScene" uid="uid://18dtb7a5xvbp" path="res://objects/player/player.tscn" id="1_on7qn"]
+[ext_resource type="Texture2D" uid="uid://dkod1157vicx5" path="res://assets/cloud_1.png" id="2_gsaxf"]
+[ext_resource type="TileSet" uid="uid://byuviogpof4o4" path="res://assets/tiles/tileset.tres" id="3_hmc46"]
+
+[sub_resource type="Gradient" id="Gradient_7us3d"]
+offsets = PackedFloat32Array(0, 0.1, 0.2, 1)
+colors = PackedColorArray(0.74902, 0.74902, 0.74902, 1, 0.905882, 0.894118, 0.784314, 1, 0.803922, 0.984314, 0.996078, 1, 1, 0.772549, 0.984314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6kai2"]
+gradient = SubResource("Gradient_7us3d")
+width = 800
+height = 600
+fill_to = Vector2(0, 1)
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_on7qn")]
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("3_hmc46")
+format = 2
+layer_0/name = "Terrain"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(0, 3, 0, 65535, 3, 0, 65534, 131075, 1, 131071, 131075, 1, 65536, 3, 1, -2, 3, 1, -1, 65539, 1, -65536, 65539, 0, -65535, 3, 0, 1, 65539, 1, 65537, 196611, 1, -131071, 327683, 1, -131072, 3, 1, -65537, 3, 1, -65538, 3, 0, 2, 196611, 1, -65534, 196611, 0, -196607, 393219, 0, -196608, 196611, 0, -131073, 3, 0, -131074, 131075, 0, 196608, 131078, 2, 196609, 196614, 2, 262143, 6, 2, 327679, 65542, 2, 262144, 6, 1, 327678, 6, 2, 393214, 6, 2, 393215, 131078, 2, 458751, 65542, 2, 393216, 196614, 2, 327680, 196614, 2, 196607, 6, 0, 262145, 262150, 1, 131072, 65542, 2, 131073, 196614, 2, 458750, 262150, 1, 196606, 262150, 1, 262142, 4, 1, 524288, 327680, 2, 589823, 393216, 2, 524287, 0, 0, 458752, 131072, 0, 589824, 65536, 2, 655359, 65536, 2, 589825, 65536, 2, 524289, 65536, 0, 524290, 65536, 0, 589826, 65536, 2, 655358, 65536, 2, 655357, 327680, 1, 589821, 65536, 0, 589822, 65536, 0, 393217, 131075, 0, 458753, 131075, 1, 393218, 131075, 3, 458754, 196611, 1, 327682, 131075, 2, 327683, 196611, 2, 393219, 196611, 3, 458748, 196609, 0, -3, 196609, 1, 65533, 196609, 0, 393213, 1, 0, 655360, 196609, 1, 655361, 65537, 0, 589827, 65536, 2, 524291, 65536, 0, 524292, 65536, 0, 589820, 0, 0, 655356, 0, 1, 720892, 0, 1, 720893, 131072, 1, 786429, 131072, 1, 786428, 393216, 2, 851964, 393216, 1, 851965, 131072, 1, 786427, 65536, 0, 786426, 0, 0, 851962, 0, 2, 851963, 65536, 2, 917501, 131072, 2, 917500, 0, 2, 524294, 65536, 0, 589829, 65536, 2, 327677, 1, 2, 720894, 1, 2, 917502, 8, 0, 851966, 8, 0, 851967, 8, 0, 786432, 8, 0, 720896, 8, 0, 720897, 8, 0, 720898, 8, 0, 655362, 8, 0, 655363, 8, 0, 655364, 8, 0, 589828, 8, 0, 655365, 8, 0, 655366, 8, 0, 589830, 8, 0, 589831, 8, 0, 524295, 8, 0, 458759, 8, 0, 458758, 8, 0, 458757, 8, 0, 524293, 8, 0, 458756, 8, 0, 458755, 8, 0, 393220, 8, 0, 327684, 8, 0, 262148, 8, 0, 262147, 8, 0, 327681, 8, 0, 524286, 8, 0, 524285, 8, 0, 524284, 8, 0, 589819, 8, 0, 655355, 8, 0, 720891, 8, 0, 720890, 8, 0, 720889, 8, 0, 786425, 8, 0, 851961, 8, 0, 917497, 8, 0, 917498, 8, 0, 917499, 8, 0, 983035, 8, 0, 983036, 8, 0, 983037, 8, 0, 983038, 8, 0, -65539, 8, 0, -65540, 8, 0, -4, 8, 0, 65532, 8, 0, 131068, 8, 0, 131069, 8, 0, -196611, 8, 0, -131075, 8, 0, -196610, 8, 0, -196609, 8, 0, -262144, 8, 0, -262143, 8, 0, -262142, 8, 0, -196606, 8, 0, -131070, 8, 0, -65533, 8, 0, 3, 8, 0, 65539, 8, 0)
+layer_1/name = "Objects"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(-131069, 2, 65536, -196605, 4, 1, -131068, 131076, 0, -262140, 65540, 1, 524283, 65540, 1, 589817, 131076, 0, 131070, 327686, 0, 262146, 393222, 0, 65538, 65540, 1)
+layer_2/name = "Shadows"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(65537, 65543, 0, 327678, 131079, 1, 262142, 131079, 0, 327682, 131079, 1, 393217, 131079, 1, 262145, 65543, 0)
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6kai2")
+expand_mode = 1
+
+[node name="Layer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Cloud" type="Sprite2D" parent="Background/Layer"]
+texture = ExtResource("2_gsaxf")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Theme" uid="uid://du13kuhmpxkka" path="res://Theme.tres" id="1_cbela"]
+[ext_resource type="Script" path="res://ui/intro/intro.gd" id="2_71be3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1roq2"]
+
+[node name="Root" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cbela")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1roq2")
+tabs_visible = false
+script = ExtResource("2_71be3")
+
+[node name="0" type="PanelContainer" parent="."]
+layout_mode = 2

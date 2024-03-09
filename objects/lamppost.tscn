@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5rtj4jt417cl"]
+
+[ext_resource type="Texture2D" uid="uid://b2s0i6g55q623" path="res://assets/objects/lamppost.png" id="1_x0y2s"]
+[ext_resource type="Texture2D" uid="uid://bgs5jp2pcyb11" path="res://assets/objects/light.tres" id="2_3e78h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gticw"]
+blend_mode = 1
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b840v"]
+radius = 4.0
+height = 10.0
+
+[node name="Lamppost" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("1_x0y2s")
+
+[node name="Light" type="Sprite2D" parent="."]
+modulate = Color(0.09, 0.75, 0.94, 0.25)
+z_index = 1
+material = SubResource("CanvasItemMaterial_gticw")
+position = Vector2(0, -39)
+texture = ExtResource("2_3e78h")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_b840v")

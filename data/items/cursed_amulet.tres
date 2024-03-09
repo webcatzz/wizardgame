@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ddlt8f4adhsxi"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_oevc6"]
+[ext_resource type="Texture2D" uid="uid://btqy4ss6gmieg" path="res://assets/items/amulet.png" id="2_hqe0p"]
+
+[resource]
+script = ExtResource("1_oevc6")
+name = "Curséd Amulet"
+texture = ExtResource("2_hqe0p")
+description = "The gem is made of plastic. Your cheapness enrages enemies and causes them to attack with double the force."
+type = 1
+price = 50
+use_health = 0
+use_mana = 0
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dmq7xi0g3r8p7"]
+
+[ext_resource type="Script" path="res://data/battlers/battler.gd" id="1_ur4jo"]
+[ext_resource type="Texture2D" uid="uid://copl51d7xyu6k" path="res://assets/battle/trash_bag.png" id="2_7siqw"]
+
+[resource]
+script = ExtResource("1_ur4jo")
+name = "Trash Bag"
+sprite = ExtResource("2_7siqw")
+description = "A lesser variety of trash demon. Highly flammable."
+type = "physical"
+actions = PackedStringArray()
+health = 10
+stamina = null
+attack = 5
+s_attack = null
+defense = null
+s_defense = null
+accuracy = null
+evasion = null
+fire = 200
+ice = 100
+wind = 100
+physical = 100
+holy = 200
+dark = 50
+deathblow = ""
+attack_mult = 1.0
+attack_mult_length = 0
+s_attack_mult = 1.0
+s_attack_mult_length = 0
+defense_mult = 1.0
+defense_mult_length = 0
+s_defense_mult = 1.0
+s_defense_mult_length = 0
+accuracy_mult = 1.0
+accuracy_mult_length = 0
+evasion_mult = 1.0
+evasion_mult_length = 0
+burn = 1
+burn_length = 0

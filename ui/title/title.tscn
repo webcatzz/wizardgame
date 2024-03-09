@@ -1,0 +1,184 @@
+[gd_scene load_steps=11 format=3 uid="uid://bswudggaq4bck"]
+
+[ext_resource type="Theme" uid="uid://du13kuhmpxkka" path="res://Theme.tres" id="1_h1r3m"]
+[ext_resource type="Texture2D" uid="uid://jqf5r5qotub4" path="res://assets/ui/checkerboard.png" id="2_4sdbr"]
+[ext_resource type="Script" path="res://ui/title/title.gd" id="2_axcgl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmr7j"]
+texture = ExtResource("2_4sdbr")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wpek"]
+line_spacing = 0.0
+font_size = 64
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tk2g7"]
+
+[sub_resource type="Animation" id="Animation_6k8uk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_giogc"]
+resource_name = "scroll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32), Rect2(16, 16, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ohkmw"]
+resource_name = "settings"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:region_rect")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 16, 32, 32), Rect2(0, 48, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3sqwh"]
+_data = {
+"RESET": SubResource("Animation_6k8uk"),
+"scroll": SubResource("Animation_giogc"),
+"settings": SubResource("Animation_ohkmw")
+}
+
+[node name="Root" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h1r3m")
+theme_override_styles/panel = SubResource("StyleBoxTexture_tmr7j")
+script = ExtResource("2_axcgl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Separator" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Separator"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "wizard game"
+label_settings = SubResource("LabelSettings_3wpek")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="TabContainer" parent="Separator"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tk2g7")
+tabs_visible = false
+
+[node name="Default" type="VBoxContainer" parent="Separator/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Start" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "start"
+
+[node name="Settings" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "settings"
+
+[node name="Quit" type="Button" parent="Separator/Buttons/Default"]
+layout_mode = 2
+text = "quit"
+
+[node name="Settings" type="VBoxContainer" parent="Separator/Buttons"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="VolumeLabel" type="Label" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+text = "volume"
+horizontal_alignment = 1
+
+[node name="Volume" type="GridContainer" parent="Separator/Buttons/Settings"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+text = "master"
+
+[node name="MasterSlider" type="HSlider" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+text = "music"
+
+[node name="MusicSlider" type="HSlider" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="SfxLabel" type="Label" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+text = "sfx"
+
+[node name="SfxSlider" type="HSlider" parent="Separator/Buttons/Settings/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Back" type="Button" parent="Separator/Buttons/Settings"]
+layout_mode = 2
+text = "go back"
+
+[node name="Scroller" type="AnimationPlayer" parent="."]
+autoplay = "scroll"
+speed_scale = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_3sqwh")
+}
+
+[connection signal="pressed" from="Separator/Buttons/Default/Start" to="." method="on_start_pressed"]
+[connection signal="pressed" from="Separator/Buttons/Default/Settings" to="." method="on_settings_pressed"]
+[connection signal="pressed" from="Separator/Buttons/Default/Quit" to="." method="on_quit_pressed"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Volume/MasterSlider" to="." method="on_master_volume_changed"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Volume/MusicSlider" to="." method="on_music_volume_changed"]
+[connection signal="value_changed" from="Separator/Buttons/Settings/Volume/SfxSlider" to="." method="on_sfx_volume_changed"]
+[connection signal="pressed" from="Separator/Buttons/Settings/Back" to="." method="on_back_pressed"]

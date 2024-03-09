@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://diwm4vi1d815m"]
+
+[ext_resource type="Script" path="res://data/shops/shop.gd" id="1_qa02w"]
+[ext_resource type="Texture2D" uid="uid://cflpexj3hnlqq" path="res://assets/ui/greg.png" id="2_hkil6"]
+
+[resource]
+script = ExtResource("1_qa02w")
+shopkeeper_name = "EVIL greg"
+shopkeeper_texture = ExtResource("2_hkil6")
+inventory = PackedStringArray("potion_health", "soda", "cursed_amulet")
+snippets = {
+"default": "care to make a purchase? nyeheheh",
+"on_leave": "farewell... for now. heeheehee",
+"on_purchase": "MONEY !!!!!!!!!!",
+"on_select": "yessss that one",
+"on_sell": "well. ok. fine.",
+"while_selling": "i don't want your garbage ASSHOLE",
+"while_talking": "tell me what you need to know."
+}
+dialogue = {
+"about you": "i am EVIL greg. i love MONEY and STEALING CHILDHOOD HOMES!!"
+}

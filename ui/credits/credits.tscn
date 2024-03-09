@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Theme" uid="uid://du13kuhmpxkka" path="res://Theme.tres" id="1_yele4"]
+[ext_resource type="Texture2D" uid="uid://cpydntjx5f5aj" path="res://assets/thanks.png" id="2_220fh"]
+[ext_resource type="Script" path="res://ui/credits/credits.gd" id="2_wiko3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oasp2"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Root" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yele4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_oasp2")
+script = ExtResource("2_wiko3")
+
+[node name="Separator" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="Credits" type="Label" parent="Separator"]
+layout_mode = 2
+theme_override_constants/line_spacing = 8
+text = "wizard game
+art: me
+music: me
+story: me
+coding: me
+font: PeanutMoney (FontEndDev)
+
+thankuou for play my \"Video Game\""
+horizontal_alignment = 1
+max_lines_visible = 0
+
+[node name="Thanks" type="TextureRect" parent="Separator"]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("2_220fh")
+expand_mode = 1
+
+[node name="From" type="Label" parent="Separator"]
+visible = false
+layout_mode = 2
+text = "- webcat
+ >:3"
+horizontal_alignment = 1

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cq3dd60uc43lg"]
+
+[ext_resource type="Script" path="res://data/actions/action.gd" id="1_lfi8t"]
+
+[resource]
+script = ExtResource("1_lfi8t")
+name = ""
+type = "heal"
+affinity = "physical"
+stamina_cost = 0
+accuracy = 1.0
+actor_type = "party"
+actor_name = ""
+target_type = "party"
+target_name = ""
+effect_health = 0
+effect_stamina = 0
+effect_attack = 0
+effect_s_attack = 0
+effect_defense = 0
+effect_s_defense = 0
+effect_accuracy = 0
+effect_evasion = 0
+effect_burn = 0
+effect_length = 0

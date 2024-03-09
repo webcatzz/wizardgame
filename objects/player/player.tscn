@@ -1,0 +1,618 @@
+[gd_scene load_steps=29 format=3 uid="uid://18dtb7a5xvbp"]
+
+[ext_resource type="Script" path="res://objects/player/player.gd" id="1_3otqf"]
+[ext_resource type="Texture2D" uid="uid://4t55r5xxnecb" path="res://assets/player.png" id="2_5jqui"]
+[ext_resource type="Script" path="res://objects/player/info.gd" id="3_8ps6a"]
+[ext_resource type="Texture2D" uid="uid://bmeyh04icaoux" path="res://assets/shadow.png" id="3_kg1el"]
+[ext_resource type="Texture2D" uid="uid://d1ogn24dy1wx0" path="res://assets/ui/paper.png" id="3_r8ike"]
+[ext_resource type="Script" path="res://objects/player/dialogue.gd" id="3_un23e"]
+[ext_resource type="Texture2D" uid="uid://b8hrg2i0vbom7" path="res://assets/ui/player.png" id="6_gwolh"]
+[ext_resource type="Texture2D" uid="uid://f4vtw7dtm1bh" path="res://assets/ui/circle.png" id="6_s0w80"]
+[ext_resource type="Texture2D" uid="uid://btqy4ss6gmieg" path="res://assets/items/amulet.png" id="7_e3y2m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6x5v8"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="Animation" id="Animation_3v2rm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rhhws"]
+resource_name = "idle_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4bvsp"]
+resource_name = "idle_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_ubd7l"]
+resource_name = "idle_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_knjiy"]
+resource_name = "idle_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_arol2"]
+resource_name = "move_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(0, 0), Vector2i(2, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rl6ep"]
+resource_name = "move_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 2), Vector2i(0, 2), Vector2i(2, 2), Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_dhdp5"]
+resource_name = "move_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 1), Vector2i(0, 1), Vector2i(2, 1), Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pbrkh"]
+resource_name = "move_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 3), Vector2i(0, 3), Vector2i(2, 3), Vector2i(0, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ef873"]
+_data = {
+"RESET": SubResource("Animation_3v2rm"),
+"idle_down": SubResource("Animation_rhhws"),
+"idle_left": SubResource("Animation_4bvsp"),
+"idle_right": SubResource("Animation_ubd7l"),
+"idle_up": SubResource("Animation_knjiy"),
+"move_down": SubResource("Animation_arol2"),
+"move_left": SubResource("Animation_rl6ep"),
+"move_right": SubResource("Animation_dhdp5"),
+"move_up": SubResource("Animation_pbrkh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jv2k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fd3e0"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.8)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1aunj"]
+content_margin_left = 8.0
+
+[sub_resource type="Animation" id="Animation_jcc5u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box/Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 171)]
+}
+
+[sub_resource type="Animation" id="Animation_8l8vx"]
+resource_name = "fade"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box/Text:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_swt4j"]
+resource_name = "fade_options"
+length = 0.05
+
+[sub_resource type="Animation" id="Animation_tyh1a"]
+resource_name = "open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujxk5"]
+_data = {
+"RESET": SubResource("Animation_jcc5u"),
+"fade": SubResource("Animation_8l8vx"),
+"fade_options": SubResource("Animation_swt4j"),
+"open": SubResource("Animation_tyh1a")
+}
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_3otqf")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_5jqui")
+hframes = 5
+vframes = 4
+
+[node name="Shadow" type="Sprite2D" parent="Sprite"]
+show_behind_parent = true
+position = Vector2(0, 15)
+texture = ExtResource("3_kg1el")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_6x5v8")
+
+[node name="Interactor" type="RayCast2D" parent="."]
+target_position = Vector2(0, 20)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -15)
+zoom = Vector2(2, 2)
+editor_draw_screen = false
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ef873")
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Info" type="PanelContainer" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2jv2k")
+script = ExtResource("3_8ps6a")
+
+[node name="Separator" type="HBoxContainer" parent="UI/Info"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Player" type="Control" parent="UI/Info/Separator"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="PanelContainer" parent="UI/Info/Separator/Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0698132
+pivot_offset = Vector2(100, 140.682)
+
+[node name="Background" type="TextureRect" parent="UI/Info/Separator/Player/Panel"]
+modulate = Color(0.984314, 0.933333, 0.85098, 1)
+layout_mode = 2
+texture = ExtResource("3_r8ike")
+expand_mode = 5
+
+[node name="Margins" type="MarginContainer" parent="UI/Info/Separator/Player/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Separator" type="VBoxContainer" parent="UI/Info/Separator/Player/Panel/Margins"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Basic" type="HBoxContainer" parent="UI/Info/Separator/Player/Panel/Margins/Separator"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic"]
+layout_mode = 2
+texture = ExtResource("6_gwolh")
+
+[node name="Info" type="VBoxContainer" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Name" type="Label" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+text = "PLAYER (LV. ?)"
+
+[node name="HealthBar" type="ProgressBar" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic/Info"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_type_variation = &"HealthBar"
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic/Info/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "%s/%s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaBar" type="ProgressBar" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic/Info"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_type_variation = &"ManaBar"
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Value" type="Label" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Basic/Info/ManaBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "%s/%s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Stats" type="Label" parent="UI/Info/Separator/Player/Panel/Margins/Separator"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0941176, 0.0784314, 0.145098, 1)
+text = "ATK: 0
+DEF: 0
+Max. Modifiers: 0"
+
+[node name="Slots" type="HBoxContainer" parent="UI/Info/Separator/Player/Panel/Margins/Separator"]
+layout_mode = 2
+
+[node name="Head" type="TextureButton" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("6_s0w80")
+
+[node name="Icon" type="TextureRect" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots/Head"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="Body" type="TextureButton" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("6_s0w80")
+flip_h = true
+
+[node name="Icon" type="TextureRect" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots/Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="Charm" type="TextureButton" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("6_s0w80")
+flip_h = true
+flip_v = true
+
+[node name="Icon" type="TextureRect" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots/Charm"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_e3y2m")
+stretch_mode = 5
+
+[node name="Weapon" type="TextureButton" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture_normal = ExtResource("6_s0w80")
+
+[node name="Icon" type="TextureRect" parent="UI/Info/Separator/Player/Panel/Margins/Separator/Slots/Weapon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="Playtime" type="Label" parent="UI/Info/Separator/Player/Panel/Margins/Separator"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0.501961, 0.501961, 0.501961, 1)
+text = "Playtime: 00:00"
+
+[node name="Inventory" type="VBoxContainer" parent="UI/Info/Separator"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Inventory" type="TabContainer" parent="UI/Info/Separator/Inventory"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="USE" type="ItemList" parent="UI/Info/Separator/Inventory/Inventory"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+allow_reselect = true
+
+[node name="EQP" type="ItemList" parent="UI/Info/Separator/Inventory/Inventory"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+allow_reselect = true
+
+[node name="KEY" type="ItemList" parent="UI/Info/Separator/Inventory/Inventory"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+allow_reselect = true
+
+[node name="Description" type="RichTextLabel" parent="UI/Info/Separator/Inventory"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=gray]Select an item.[/color]"
+scroll_active = false
+
+[node name="Dialogue" type="PanelContainer" parent="UI"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+focus_mode = 1
+script = ExtResource("3_un23e")
+
+[node name="Sprites" type="PanelContainer" parent="UI/Dialogue"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Left" type="TextureRect" parent="UI/Dialogue/Sprites"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Right" type="TextureRect" parent="UI/Dialogue/Sprites"]
+layout_mode = 2
+size_flags_horizontal = 8
+flip_h = true
+
+[node name="Box" type="PanelContainer" parent="UI/Dialogue"]
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_fd3e0")
+
+[node name="Text" type="VBoxContainer" parent="UI/Dialogue/Box"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Speaker" type="Label" parent="UI/Dialogue/Box/Text"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1aunj")
+text = "speaker name"
+
+[node name="Text" type="RichTextLabel" parent="UI/Dialogue/Box/Text"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+bbcode_enabled = true
+text = "text text text"
+
+[node name="Options" type="VBoxContainer" parent="UI/Dialogue/Box"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Animator" type="AnimationPlayer" parent="UI/Dialogue"]
+libraries = {
+"": SubResource("AnimationLibrary_ujxk5")
+}
+
+[connection signal="draw" from="UI/Info" to="UI/Info" method="_ready"]
+[connection signal="hidden" from="UI/Info" to="UI/Info" method="display_description" binds= [-1]]
+[connection signal="item_selected" from="UI/Info/Separator/Inventory/Inventory/USE" to="UI/Info" method="display_description"]
+[connection signal="mouse_exited" from="UI/Info/Separator/Inventory/Inventory/USE" to="UI/Info" method="display_description" binds= [-1]]
+[connection signal="item_selected" from="UI/Info/Separator/Inventory/Inventory/EQP" to="UI/Info" method="display_description"]
+[connection signal="item_selected" from="UI/Info/Separator/Inventory/Inventory/KEY" to="UI/Info" method="display_description"]
+[connection signal="gui_input" from="UI/Dialogue" to="UI/Dialogue" method="input"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuwhkj1q3y0xm"]
+
+[ext_resource type="TileSet" uid="uid://byuviogpof4o4" path="res://assets/tiles/tileset.tres" id="1_q8ltd"]
+[ext_resource type="PackedScene" uid="uid://d012ull5grqhg" path="res://objects/npc.tscn" id="2_bp6f1"]
+[ext_resource type="Texture2D" uid="uid://cpydntjx5f5aj" path="res://assets/thanks.png" id="3_i4312"]
+[ext_resource type="PackedScene" uid="uid://bo4sc33aoxl3a" path="res://objects/door.tscn" id="4_nhxax"]
+[ext_resource type="PackedScene" uid="uid://18dtb7a5xvbp" path="res://objects/player/player.tscn" id="5_kcmix"]
+
+[sub_resource type="Gradient" id="Gradient_lnup8"]
+offsets = PackedFloat32Array(0.25, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j1nof"]
+gradient = SubResource("Gradient_lnup8")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_rxf74"]
+colors = PackedColorArray(0, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f33eh"]
+gradient = SubResource("Gradient_rxf74")
+width = 4
+fill_to = Vector2(0, 1)
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+metadata/music = "space_cafe"
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = ExtResource("1_q8ltd")
+format = 2
+layer_0/tile_data = PackedInt32Array(262155, 131075, 0, 327691, 458755, 1, 393227, 3, 1, 458763, 3, 0, 524299, 131075, 1, 589835, 262147, 1, 262156, 65539, 1, 327692, 131075, 2, 393228, 3, 2, 458764, 131075, 3, 524300, 3, 0, 589836, 3, 0, 655372, 393219, 1, 720908, 65539, 1, 786444, 131075, 1, 851980, 131075, 0, 917516, 131075, 4, 983052, 65539, 1, 1048588, 131075, 5, 262157, 3, 1, 327693, 3, 2, 393229, 3, 2, 458765, 3, 2, 524301, 65539, 0, 589837, 3, 0, 655373, 65539, 1, 720909, 65539, 1, 786445, 65539, 0, 851981, 3, 1, 917517, 3, 0, 983053, 393219, 5, 1048589, 3, 1, 262158, 3, 0, 327694, 196611, 2, 393230, 3, 2, 458766, 196611, 3, 524302, 3, 1, 589838, 196611, 1, 720910, 196611, 0, 786446, 458755, 1, 851982, 65539, 1, 917518, 196611, 4, 983054, 3, 0, 1048590, 196611, 5, 262159, 196611, 0, 327695, 3, 0, 393231, 3, 1, 458767, 458755, 0, 524303, 196611, 1, 589839, 393219, 0, 851983, 327683, 1)
+
+[node name="NPC" parent="." instance=ExtResource("2_bp6f1")]
+position = Vector2(216, 104)
+sprite = ExtResource("3_i4312")
+dialogue = "june: HA HA HEY UH
+june: YOU ARE NOT SUPPOSED TO BE HERE
+june: TRy heading back the way you came"
+
+[node name="Sprite" parent="NPC" index="0"]
+position = Vector2(5.75, -12.75)
+scale = Vector2(0.269, 0.233)
+texture = ExtResource("3_i4312")
+
+[node name="DoorOut" parent="." instance=ExtResource("4_nhxax")]
+position = Vector2(216, 248)
+destination = "test"
+exit_facing = 0
+mode = 1
+sfx = "magic_snap"
+
+[node name="Glow" type="Sprite2D" parent="DoorOut"]
+texture = SubResource("GradientTexture2D_j1nof")
+
+[node name="Pillar" type="Sprite2D" parent="DoorOut"]
+position = Vector2(0, -32)
+texture = SubResource("GradientTexture2D_f33eh")
+
+[node name="Player" parent="." instance=ExtResource("5_kcmix")]
+position = Vector2(216, 232)
+
+[editable path="NPC"]

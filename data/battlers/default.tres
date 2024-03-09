@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d1yvy5d1hejbi"]
+
+[ext_resource type="Script" path="res://data/battlers/battler.gd" id="1_p8k6f"]
+[ext_resource type="Texture2D" uid="uid://davi8ddlt7440" path="res://assets/battle/muscle.png" id="2_v8q0h"]
+
+[resource]
+script = ExtResource("1_p8k6f")
+name = "Test Enemy"
+sprite = ExtResource("2_v8q0h")
+description = "How'd this get here?"
+type = "physical"
+actions = PackedStringArray()
+health = 1
+stamina = 1
+attack = 1
+s_attack = 1
+defense = 0
+s_defense = 0
+accuracy = 0.95
+evasion = 0.0
+fire = 100
+ice = 100
+wind = 100
+physical = 100
+holy = 100
+dark = 100
+deathblow = ""
+attack_mult = 0.0
+attack_mult_length = 0
+s_attack_mult = 0.0
+s_attack_mult_length = 0
+defense_mult = 0.0
+defense_mult_length = 0
+s_defense_mult = 0.0
+s_defense_mult_length = 0
+accuracy_mult = 0.0
+accuracy_mult_length = 0
+evasion_mult = 0.0
+evasion_mult_length = 0
+burn = 1
+burn_length = 0

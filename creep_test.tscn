@@ -1,0 +1,326 @@
+[gd_scene load_steps=18 format=3 uid="uid://dvay2t7e7wdkq"]
+
+[ext_resource type="Texture2D" uid="uid://bfibpvc42c3qy" path="res://assets/creeptest/eyes.png" id="1_g031v"]
+[ext_resource type="Texture2D" uid="uid://bsfrnsngocbnv" path="res://assets/creeptest/remove.png" id="1_myvhc"]
+[ext_resource type="Texture2D" uid="uid://b1lturj0u6dol" path="res://assets/creeptest/applause.png" id="2_2u46w"]
+[ext_resource type="Texture2D" uid="uid://bgwrug7d1s22v" path="res://assets/creeptest/eye.png" id="4_882c8"]
+[ext_resource type="AudioStream" uid="uid://btlbeolp5bjyc" path="res://assets/music/creeps.mp3" id="5_bunx7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxamt"]
+texture = ExtResource("1_g031v")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 125, 125)
+
+[sub_resource type="Gradient" id="Gradient_508t4"]
+offsets = PackedFloat32Array(0, 0.6, 0.8)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cr7fy"]
+gradient = SubResource("Gradient_508t4")
+width = 250
+height = 250
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_w4igw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 125, 125)]
+}
+
+[sub_resource type="Animation" id="Animation_0h4el"]
+resource_name = "new_animation"
+length = 3.9
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.2, 2.25, 2.3, 2.35, 2.4, 2.45, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 2.95, 3, 3.05, 3.1, 3.15, 3.2, 3.25, 3.3, 3.35, 3.4, 3.45, 3.5, 3.55, 3.6, 3.65, 3.7, 3.75, 3.8, 3.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 125, 125), Rect2(125, 0, 125, 125), Rect2(250, 0, 125, 125), Rect2(375, 0, 125, 125), Rect2(500, 0, 125, 125), Rect2(625, 0, 125, 125), Rect2(750, 0, 125, 125), Rect2(875, 0, 125, 125), Rect2(1000, 0, 125, 125), Rect2(0, 125, 125, 125), Rect2(125, 125, 125, 125), Rect2(250, 125, 125, 125), Rect2(375, 125, 125, 125), Rect2(500, 125, 125, 125), Rect2(625, 125, 125, 125), Rect2(750, 125, 125, 125), Rect2(875, 125, 125, 125), Rect2(1000, 125, 125, 125), Rect2(0, 250, 125, 125), Rect2(125, 250, 125, 125), Rect2(250, 250, 125, 125), Rect2(375, 250, 125, 125), Rect2(500, 250, 125, 125), Rect2(625, 250, 125, 125), Rect2(750, 250, 125, 125), Rect2(875, 250, 125, 125), Rect2(1000, 250, 125, 125), Rect2(0, 375, 125, 125), Rect2(125, 375, 125, 125), Rect2(250, 375, 125, 125), Rect2(375, 375, 125, 125), Rect2(500, 375, 125, 125), Rect2(625, 375, 125, 125), Rect2(750, 375, 125, 125), Rect2(875, 375, 125, 125), Rect2(1000, 375, 125, 125), Rect2(0, 500, 125, 125), Rect2(125, 500, 125, 125), Rect2(250, 500, 125, 125), Rect2(375, 500, 125, 125), Rect2(500, 500, 125, 125), Rect2(625, 500, 125, 125), Rect2(750, 500, 125, 125), Rect2(875, 500, 125, 125), Rect2(1000, 500, 125, 125), Rect2(0, 625, 125, 125), Rect2(125, 625, 125, 125), Rect2(250, 625, 125, 125), Rect2(375, 625, 125, 125), Rect2(500, 625, 125, 125), Rect2(625, 625, 125, 125), Rect2(750, 625, 125, 125), Rect2(875, 625, 125, 125), Rect2(1000, 625, 125, 125), Rect2(0, 750, 125, 125), Rect2(125, 750, 125, 125), Rect2(250, 750, 125, 125), Rect2(375, 750, 125, 125), Rect2(500, 750, 125, 125), Rect2(625, 750, 125, 125), Rect2(750, 750, 125, 125), Rect2(875, 750, 125, 125), Rect2(1000, 750, 125, 125), Rect2(0, 875, 125, 125), Rect2(125, 875, 125, 125), Rect2(250, 875, 125, 125), Rect2(375, 875, 125, 125), Rect2(500, 875, 125, 125), Rect2(625, 875, 125, 125), Rect2(750, 875, 125, 125), Rect2(875, 875, 125, 125), Rect2(1000, 875, 125, 125), Rect2(0, 1000, 125, 125), Rect2(125, 1000, 125, 125), Rect2(250, 1000, 125, 125), Rect2(375, 1000, 125, 125), Rect2(500, 1000, 125, 125), Rect2(625, 1000, 125, 125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jphyj"]
+_data = {
+"RESET": SubResource("Animation_w4igw"),
+"new_animation": SubResource("Animation_0h4el")
+}
+
+[sub_resource type="Animation" id="Animation_4qcew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q3ofy"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wxbb"]
+_data = {
+"RESET": SubResource("Animation_4qcew"),
+"new_animation": SubResource("Animation_q3ofy")
+}
+
+[sub_resource type="Animation" id="Animation_huunv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Applaud:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Applaud:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RemoveYourHead:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RemoveYourHead:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Applaud:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RemoveYourHead:skew")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RemoveYourHead:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_snq7u"]
+resource_name = "rotate"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Applaud:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1, 1.9, 2, 2.9, 3, 3.9, 4, 4.9, 5, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 1.0472, 1.22173, 2.0944, 2.26893, 3.14159, 3.31613, 4.18879, 4.36332, 5.23599, 5.41052, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Applaud:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RemoveYourHead:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.1), Color(1, 1, 1, 0.25098), Color(0.313726, 0.25098, 0.25098, 1), Color(1, 1, 1, 0.25)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RemoveYourHead:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Applaud:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RemoveYourHead:skew")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.56905, 0.0, 1.56905]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RemoveYourHead:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5, 5.2, 5.9, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 6.28319, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0pf6"]
+_data = {
+"RESET": SubResource("Animation_huunv"),
+"rotate": SubResource("Animation_snq7u")
+}
+
+[node name="Root" type="Node2D"]
+
+[node name="Background" type="PanelContainer" parent="."]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 999.0
+offset_bottom = 999.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_vxamt")
+
+[node name="Vignette" type="TextureRect" parent="Background"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_cr7fy")
+
+[node name="Animator" type="AnimationPlayer" parent="Background"]
+libraries = {
+"": SubResource("AnimationLibrary_jphyj")
+}
+
+[node name="RemoveYourHead" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25)
+position = Vector2(499, 499)
+texture = ExtResource("1_myvhc")
+
+[node name="Applaud" type="Sprite2D" parent="."]
+position = Vector2(499, 499)
+texture = ExtResource("2_2u46w")
+
+[node name="Eye" type="Sprite2D" parent="."]
+position = Vector2(499, 499)
+texture = ExtResource("4_882c8")
+
+[node name="Scaler" type="AnimationPlayer" parent="Eye"]
+libraries = {
+"": SubResource("AnimationLibrary_3wxbb")
+}
+
+[node name="Rotator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w0pf6")
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bunx7")

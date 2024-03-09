@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://gfjhwqkslhkw"]
+
+[ext_resource type="PackedScene" uid="uid://18dtb7a5xvbp" path="res://objects/player/player.tscn" id="1_jrut2"]
+
+[sub_resource type="Gradient" id="Gradient_6by7l"]
+offsets = PackedFloat32Array(0.8, 0.9, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kj51e"]
+gradient = SubResource("Gradient_6by7l")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Curve" id="Curve_wtct3"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 2.0, 0, 1, Vector2(1, 2), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_15ye1"]
+offsets = PackedFloat32Array(0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Root" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jrut2")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Player"]
+show_behind_parent = true
+emitting = false
+amount = 1
+texture = SubResource("GradientTexture2D_kj51e")
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_wtct3")
+color_ramp = SubResource("Gradient_15ye1")
+
+[connection signal="item_rect_changed" from="Player" to="Player/CPUParticles2D" method="set_visible" binds= [false]]

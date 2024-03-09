@@ -1,0 +1,110 @@
+[gd_scene load_steps=17 format=3 uid="uid://dn8ovk2l0giws"]
+
+[ext_resource type="PackedScene" uid="uid://d012ull5grqhg" path="res://objects/npc.tscn" id="2_m6xvt"]
+[ext_resource type="PackedScene" uid="uid://18dtb7a5xvbp" path="res://objects/player/player.tscn" id="2_mocjr"]
+[ext_resource type="Texture2D" uid="uid://cei5b3hc23kyo" path="res://assets/objects/salesman.png" id="3_bakfd"]
+[ext_resource type="Texture2D" uid="uid://bgs5jp2pcyb11" path="res://assets/objects/light.tres" id="4_5dwdv"]
+[ext_resource type="PackedScene" uid="uid://bo4sc33aoxl3a" path="res://objects/door.tscn" id="5_cpwl0"]
+[ext_resource type="PackedScene" uid="uid://cv4jvngi14ggs" path="res://objects/shop.tscn" id="6_o1fly"]
+[ext_resource type="Texture2D" uid="uid://cjojia1h5hu2j" path="res://assets/objects/trashcan_open.png" id="7_o7xoa"]
+
+[sub_resource type="Gradient" id="Gradient_2ax40"]
+colors = PackedColorArray(1, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ksghl"]
+noise_type = 2
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pf5kp"]
+width = 64
+height = 256
+color_ramp = SubResource("Gradient_2ax40")
+noise = SubResource("FastNoiseLite_ksghl")
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xcie5"]
+a = Vector2(-32, -224)
+b = Vector2(-32, 32)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_06xat"]
+a = Vector2(-32, -224)
+b = Vector2(32, -224)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3kg6f"]
+a = Vector2(32, 32)
+b = Vector2(32, -224)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7ppcw"]
+a = Vector2(32, 32)
+b = Vector2(-32, 32)
+
+[sub_resource type="Gradient" id="Gradient_hlex2"]
+offsets = PackedFloat32Array(0, 0.993548)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hlcni"]
+gradient = SubResource("Gradient_hlex2")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Root" type="Node2D"]
+y_sort_enabled = true
+metadata/music = "creeps"
+
+[node name="Floor" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(0, -96)
+texture = SubResource("NoiseTexture2D_pf5kp")
+
+[node name="Player" parent="." instance=ExtResource("2_mocjr")]
+
+[node name="salesman" parent="." instance=ExtResource("2_m6xvt")]
+position = Vector2(0, -192)
+sprite = ExtResource("3_bakfd")
+dialogue = "salesman: hhHELLO THeRE !!!!
+salesman: Care To Peruse Mine Wares ?
+salesman: ...
+salesman: The TrashCan Open The \"trash_can\""
+second_dialogue = "salesman: DDDDDDDid you kNow?
+salesman: \"You can press KEY.ESC to open the Settings Menu!\"
+salesman: Give Me All Uour Money"
+
+[node name="light" type="Sprite2D" parent="salesman"]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5dwdv")
+
+[node name="Shop" parent="." instance=ExtResource("6_o1fly")]
+position = Vector2(24, -184)
+shop = "default"
+
+[node name="sprite" type="Sprite2D" parent="Shop"]
+position = Vector2(0, -8)
+texture = ExtResource("7_o7xoa")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("SegmentShape2D_xcie5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("SegmentShape2D_06xat")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("SegmentShape2D_3kg6f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
+shape = SubResource("SegmentShape2D_7ppcw")
+
+[node name="DoorOut" parent="." instance=ExtResource("5_cpwl0")]
+position = Vector2(0, 32)
+destination = "test"
+pair_path = "House/Door"
+exit_facing = 0
+sfx = "door_click"
+size = Vector2i(16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorOut"]
+position = Vector2(0, -8)
+texture = SubResource("GradientTexture2D_hlcni")

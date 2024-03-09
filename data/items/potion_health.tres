@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bv6opx4wbja71"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_535x2"]
+[ext_resource type="Texture2D" uid="uid://cf5rqw6gu5iyb" path="res://assets/items/potion_health.png" id="2_450g0"]
+
+[resource]
+script = ExtResource("1_535x2")
+name = "Health Potion"
+texture = ExtResource("2_450g0")
+description = ""
+type = 0
+price = 25
+use_health = 50
+use_mana = 0
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

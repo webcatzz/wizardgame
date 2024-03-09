@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo4sc33aoxl3a"]
+
+[ext_resource type="Script" path="res://objects/door.gd" id="1_1g83u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vle4"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
+[node name="Door" type="Area2D"]
+input_pickable = false
+monitoring = false
+monitorable = false
+script = ExtResource("1_1g83u")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4vle4")
+
+[connection signal="body_entered" from="." to="." method="interact"]

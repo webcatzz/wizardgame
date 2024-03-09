@@ -1,0 +1,40 @@
+# test_girl_(rude)
+PLAYER
+	hey!
+girl (rude)
+	what do you want
+PLAYER
+	do you know where the wizard school is?
+	...i'm lost.
+girl (rude)
+	fuck if i know. over there
+
+
+# test_girl_(rude)_2
+girl (rude)
+	do you like. need something
+
+
+# test_shadow
+PLAYER
+	what's up
+(The shadow stares deep into your eyes, though it has none.)
+(You almost can't look away.)
+PLAYER
+	dude that's creepy
+	stop it
+
+
+# test_house_salesman
+salesman
+	hhHELLO THeRE !!!!
+	Care To Peruse Mine Wares ?
+	...
+	ohHHh but HEeheehee it seems I Have Nothginggg TO Sell!?
+	Fuck Yourself & Die ♥
+
+
+# test_house_salesman_2
+salesman
+	DDDDDDDid you kNow?
+	"You can press KEY.ESC to open the Settings Menu!"

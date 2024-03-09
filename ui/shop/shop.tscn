@@ -1,0 +1,198 @@
+[gd_scene load_steps=17 format=3 uid="uid://btdyh06wybwsr"]
+
+[ext_resource type="Script" path="res://ui/shop/shop.gd" id="1_au2y5"]
+[ext_resource type="Texture2D" uid="uid://dgt32jje8f0bq" path="res://assets/battle/temp.png" id="2_o2tsr"]
+[ext_resource type="Texture2D" uid="uid://cflpexj3hnlqq" path="res://assets/ui/greg.png" id="2_y33ux"]
+[ext_resource type="Texture2D" uid="uid://cad3klxxnbxqm" path="res://assets/ui/wood.png" id="4_chey3"]
+[ext_resource type="Texture2D" uid="uid://bn6ynv6xehdo3" path="res://assets/ui/shelf.png" id="5_7k8m2"]
+[ext_resource type="Texture2D" uid="uid://brsh72k7k42fa" path="res://assets/ui/coin.png" id="5_hlu5w"]
+[ext_resource type="StyleBox" uid="uid://d3iwpk12mnqj2" path="res://assets/ui/item_hover.tres" id="7_pa3ti"]
+
+[sub_resource type="Gradient" id="Gradient_wuht3"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0, 0, 0, 0.75, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a68s2"]
+gradient = SubResource("Gradient_wuht3")
+width = 1
+height = 38
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rqmag"]
+content_margin_top = 8.0
+content_margin_bottom = 16.0
+texture = SubResource("GradientTexture2D_a68s2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e2nha"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("4_chey3")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_frj2r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7qhm"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.247059, 0.156863, 0.196078, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_beu1a"]
+texture = ExtResource("5_7k8m2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_osrx0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y5u04"]
+
+[node name="Root" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_au2y5")
+
+[node name="Shopkeeper" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="Shopkeeper"]
+modulate = Color(0.196078, 0.196078, 0.196078, 1)
+layout_mode = 2
+texture = ExtResource("2_o2tsr")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Sprite" type="TextureRect" parent="Shopkeeper"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_y33ux")
+
+[node name="Dialogue" type="Label" parent="Shopkeeper"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rqmag")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Options" type="PanelContainer" parent="Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_e2nha")
+
+[node name="List" type="VBoxContainer" parent="Shop/Options"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Buy" type="Button" parent="Shop/Options/List"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_frj2r")
+text = "Buy"
+
+[node name="Sell" type="Button" parent="Shop/Options/List"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_frj2r")
+text = "Sell
+"
+
+[node name="Talk" type="Button" parent="Shop/Options/List"]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_frj2r")
+text = "Talk
+"
+
+[node name="Leave" type="Button" parent="Shop/Options/List"]
+layout_mode = 2
+text = "Leave"
+
+[node name="Money" type="PanelContainer" parent="Shop/Options/List"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7qhm")
+
+[node name="Label" type="Label" parent="Shop/Options/List/Money"]
+layout_mode = 2
+text = "0"
+
+[node name="Icon" type="TextureRect" parent="Shop/Options/List/Money"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("5_hlu5w")
+stretch_mode = 3
+
+[node name="Display" type="TabContainer" parent="Shop"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_beu1a")
+tabs_visible = false
+
+[node name="ShopInventory" type="VBoxContainer" parent="Shop/Display"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PlayerInventory" type="VBoxContainer" parent="Shop/Display"]
+visible = false
+layout_mode = 2
+
+[node name="Dialogue" type="ItemList" parent="Shop/Display"]
+visible = false
+layout_mode = 2
+theme_override_constants/v_separation = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_osrx0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y5u04")
+theme_override_styles/selected = ExtResource("7_pa3ti")
+
+[node name="PurchaseConfirm" type="ConfirmationDialog" parent="."]
+title = ""
+size = Vector2i(200, 70)
+unresizable = true
+borderless = true
+min_size = Vector2i(0, 0)
+ok_button_text = "Buy"
+dialog_text = "Buy this item?"
+
+[node name="PurchaseFail" type="AcceptDialog" parent="."]
+title = ""
+size = Vector2i(220, 62)
+unresizable = true
+borderless = true
+dialog_text = "You don't have enough money for this!"
+
+[node name="SellConfirm" type="ConfirmationDialog" parent="."]
+title = ""
+size = Vector2i(200, 70)
+unresizable = true
+borderless = true
+min_size = Vector2i(0, 0)
+ok_button_text = "Buy"
+dialog_text = "Sell this item?"
+
+[connection signal="pressed" from="Shop/Options/List/Buy" to="Shop/Display" method="set_current_tab" binds= [0]]
+[connection signal="pressed" from="Shop/Options/List/Sell" to="Shop/Display" method="set_current_tab" binds= [1]]
+[connection signal="pressed" from="Shop/Options/List/Talk" to="Shop/Display" method="set_current_tab" binds= [2]]
+[connection signal="pressed" from="Shop/Options/List/Leave" to="." method="on_leave"]
+[connection signal="tab_changed" from="Shop/Display" to="." method="display_dialogue"]
+[connection signal="canceled" from="PurchaseConfirm" to="." method="display_dialogue"]
+[connection signal="confirmed" from="PurchaseConfirm" to="." method="item_purchased"]
+[connection signal="canceled" from="PurchaseFail" to="." method="display_dialogue"]
+[connection signal="confirmed" from="PurchaseFail" to="." method="display_dialogue"]
+[connection signal="canceled" from="SellConfirm" to="." method="display_dialogue"]
+[connection signal="confirmed" from="SellConfirm" to="." method="item_sold"]

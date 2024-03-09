@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://uabwksso3v3l"]
+
+[ext_resource type="Script" path="res://data/actions/action.gd" id="1_vanor"]
+
+[resource]
+script = ExtResource("1_vanor")
+name = ""
+type = "physical"
+affinity = "physical"
+stamina_cost = 0
+accuracy = 1.0
+actor_type = ""
+actor_name = ""
+target_type = ""
+target_name = ""
+effect_health = 0
+effect_stamina = 0
+effect_attack = 0
+effect_s_attack = 0
+effect_defense = 0
+effect_s_defense = 0
+effect_accuracy = 0
+effect_evasion = 0
+effect_burn = 0
+effect_length = 0

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://btyaakeft8k8f"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_w67mc"]
+[ext_resource type="Texture2D" uid="uid://e2tn7esovkt7" path="res://assets/items/potion_mana_greater.png" id="2_k8m2g"]
+
+[resource]
+script = ExtResource("1_w67mc")
+name = "Greater Mana Potion"
+texture = ExtResource("2_k8m2g")
+description = ""
+type = 0
+price = 50
+use_health = 0
+use_mana = 100
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

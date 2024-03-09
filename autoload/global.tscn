@@ -1,0 +1,313 @@
+[gd_scene load_steps=10 format=3 uid="uid://5su52yxg2cld"]
+
+[ext_resource type="Script" path="res://autoload/global.gd" id="1_sprpg"]
+[ext_resource type="Texture2D" uid="uid://b6eg0h7c3chp0" path="res://assets/ui/shadow.png" id="4_47nyi"]
+
+[sub_resource type="Animation" id="Animation_6nkpl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseScreen/Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseScreen/Container:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PauseScreen/Background:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Music:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8k8i8"]
+resource_name = "fade_out"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vhqcc"]
+resource_name = "pause"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseScreen/Background:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseScreen/Container:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PauseScreen/Background:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Music:pitch_scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.75]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly3b5"]
+_data = {
+"RESET": SubResource("Animation_6nkpl"),
+"fade_out": SubResource("Animation_8k8i8"),
+"pause": SubResource("Animation_vhqcc")
+}
+
+[sub_resource type="Gradient" id="Gradient_ov0df"]
+interpolation_mode = 2
+colors = PackedColorArray(0.17, 0.91, 0.96, 0.5, 0.43, 1, 0.32, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dxxpv"]
+gradient = SubResource("Gradient_ov0df")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bc8k7"]
+texture = ExtResource("4_47nyi")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[node name="Global" type="Node"]
+process_mode = 3
+script = ExtResource("1_sprpg")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ly3b5")
+}
+
+[node name="Dialogue" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+offset_right = 500.0
+offset_bottom = 313.0
+scale = Vector2(1, 1e-05)
+texture = SubResource("GradientTexture2D_dxxpv")
+
+[node name="Container" type="PanelContainer" parent="PauseScreen"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bc8k7")
+
+[node name="Separator" type="VBoxContainer" parent="PauseScreen/Container"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.5)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][wave]GAME PAUSED![/wave][/center]"
+fit_content = true
+
+[node name="Separator" type="VBoxContainer" parent="PauseScreen/Container/Separator"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/separation = 4
+
+[node name="Volume" type="GridContainer" parent="PauseScreen/Container/Separator/Separator"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+text = "master"
+
+[node name="MasterSlider" type="HSlider" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+text = "music"
+
+[node name="MusicSlider" type="HSlider" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="SfxLabel" type="Label" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+text = "sfx"
+
+[node name="SfxSlider" type="HSlider" parent="PauseScreen/Container/Separator/Separator/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="BattleTimer" type="CheckButton" parent="PauseScreen/Container/Separator/Separator"]
+layout_mode = 2
+text = "battle timer"
+alignment = 1
+
+[node name="Divider" type="HSeparator" parent="PauseScreen/Container/Separator/Separator"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Buttons" type="HBoxContainer" parent="PauseScreen/Container/Separator/Separator"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Save" type="Button" parent="PauseScreen/Container/Separator/Separator/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "save"
+
+[node name="Quit" type="Button" parent="PauseScreen/Container/Separator/Separator/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "quit"
+
+[node name="Resume" type="Button" parent="PauseScreen/Container/Separator/Separator"]
+layout_mode = 2
+text = "resume"
+
+[node name="QuitPopup" type="PopupPanel" parent="PauseScreen"]
+size = Vector2i(176, 60)
+
+[node name="Container" type="VBoxContainer" parent="PauseScreen/QuitPopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 172.0
+offset_bottom = 56.0
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="PauseScreen/QuitPopup/Container"]
+layout_mode = 2
+text = "Are you sure you want to quit?"
+
+[node name="Buttons" type="HBoxContainer" parent="PauseScreen/QuitPopup/Container"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Yes" type="Button" parent="PauseScreen/QuitPopup/Container/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "yes"
+
+[node name="No" type="Button" parent="PauseScreen/QuitPopup/Container/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "no"
+
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Separator/Volume/MasterSlider" to="." method="set_volume"]
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Separator/Volume/MusicSlider" to="." method="set_volume" binds= [1]]
+[connection signal="value_changed" from="PauseScreen/Container/Separator/Separator/Volume/SfxSlider" to="." method="set_volume" binds= [2]]
+[connection signal="toggled" from="PauseScreen/Container/Separator/Separator/BattleTimer" to="." method="set_battle_timer"]
+[connection signal="pressed" from="PauseScreen/Container/Separator/Separator/Buttons/Save" to="." method="save"]
+[connection signal="pressed" from="PauseScreen/Container/Separator/Separator/Buttons/Quit" to="PauseScreen/QuitPopup" method="popup_centered"]
+[connection signal="pressed" from="PauseScreen/Container/Separator/Separator/Resume" to="." method="toggle_pause"]
+[connection signal="pressed" from="PauseScreen/QuitPopup/Container/Buttons/Yes" to="." method="quit"]
+[connection signal="pressed" from="PauseScreen/QuitPopup/Container/Buttons/No" to="PauseScreen/QuitPopup" method="hide"]

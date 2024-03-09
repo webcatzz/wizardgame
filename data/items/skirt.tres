@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://plyyjagpyngy"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_ptl7u"]
+[ext_resource type="Texture2D" uid="uid://cgv2s6bxjxdln" path="res://assets/items/skirt.png" id="2_sjfru"]
+
+[resource]
+script = ExtResource("1_ptl7u")
+name = "Short Skirt"
+texture = ExtResource("2_sjfru")
+description = "Offers little-to-no actual protection, but it sure is affirming."
+type = 1
+price = 10
+health = 0
+mana = 0
+use_effects = {}
+equipment_type = "Body"
+extra_health = 0
+extra_mana = 50
+extra_attack = 0
+extra_defense = 0
+equip_effects = PackedStringArray()

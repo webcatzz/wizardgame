@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c08owecqdijwv"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_aic7k"]
+[ext_resource type="Texture2D" uid="uid://1iav16sgj3n5" path="res://assets/items/cocktail.png" id="2_ayeyl"]
+[ext_resource type="Resource" uid="uid://cq3dd60uc43lg" path="res://data/actions/default_item.tres" id="3_1c12d"]
+
+[resource]
+script = ExtResource("1_aic7k")
+name = "Cocktail"
+texture = ExtResource("2_ayeyl")
+description = "Perfectly refreshing."
+type = 0
+price = 0
+use_health = 0
+use_mana = 10
+use_effects = {}
+use_use = ExtResource("3_1c12d")
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dq1vlikcakqkt"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_ywnyl"]
+[ext_resource type="Texture2D" uid="uid://dqa7ttoe8algo" path="res://assets/items/cake.png" id="2_nfqj0"]
+
+[resource]
+script = ExtResource("1_ywnyl")
+name = "Slice of Cake"
+texture = ExtResource("2_nfqj0")
+description = "Stale birthday cake. It's not your birthday, but you can't complain."
+type = 0
+price = 0
+use_health = 75
+use_mana = 0
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

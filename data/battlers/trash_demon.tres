@@ -1,0 +1,40 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bmg3mpr4re8md"]
+
+[ext_resource type="Script" path="res://data/battlers/battler.gd" id="1_ow8xg"]
+[ext_resource type="Texture2D" uid="uid://sqsonsjernvv" path="res://assets/battle/trash_demon.png" id="2_jjspp"]
+
+[resource]
+script = ExtResource("1_ow8xg")
+name = "Trash Demon"
+sprite = ExtResource("2_jjspp")
+description = "A trash demon. If it weren't for the can, they'd be completely defenseless."
+type = "physical"
+actions = PackedStringArray()
+health = 15
+stamina = 1
+attack = 10
+s_attack = 1
+defense = 5
+s_defense = 0
+accuracy = 1.0
+evasion = 0.0
+fire = 200
+ice = 100
+wind = 100
+physical = 100
+holy = 200
+dark = 50
+deathblow = ""
+attack_mult = 1.0
+attack_mult_length = 0
+s_attack_mult = 1.0
+s_attack_mult_length = 0
+defense_mult = 1.0
+defense_mult_length = 0
+s_defense_mult = 1.0
+s_defense_mult_length = 0
+accuracy_mult = 1.0
+accuracy_mult_length = 0
+evasion_mult = 1.0
+evasion_mult_length = 0
+status_effect = "none"

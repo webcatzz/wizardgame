@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ckmvk52npgjul"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_ipet3"]
+[ext_resource type="Texture2D" uid="uid://h2n7oi0fdbea" path="res://assets/items/sandwich.png" id="2_trpcv"]
+
+[resource]
+script = ExtResource("1_ipet3")
+name = "Sandwich"
+texture = ExtResource("2_trpcv")
+description = "sanditch ."
+type = 0
+price = 15
+use_health = 30
+use_mana = 0
+use_effects = {}
+equip_type = ""
+equip_health = 0
+equip_mana = 0
+equip_attack = 0
+equip_defense = 0
+equip_effects = PackedStringArray()

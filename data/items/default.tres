@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://sy3u8tnmnf8c"]
+
+[ext_resource type="Script" path="res://data/items/item.gd" id="1_mfsvj"]
+[ext_resource type="Texture2D" uid="uid://bw6a1ecwjijhj" path="res://assets/items/default.png" id="2_m3kbp"]
+
+[resource]
+script = ExtResource("1_mfsvj")
+name = "test_item"
+texture = ExtResource("2_m3kbp")
+healing = 0

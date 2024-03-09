@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dntq7kf1npgdp"]
+
+[ext_resource type="Script" path="res://data/player.gd" id="1_243rt"]
+
+[resource]
+script = ExtResource("1_243rt")
+name = "El"
+level = 1
+experience = 0
+equipped = {
+"body": "",
+"charm": "",
+"head": "",
+"weapon": ""
+}
+money = 79
+consumables = PackedStringArray("cake")
+equipment = PackedStringArray("skirt")
+key_items = PackedStringArray()
+location_name = "test"
+location_position = Vector2(-16, -256)
+location_flags = {}
+health = 100
+max_health = 100
+mana = 100
+max_mana = 100
+attack = 10
+defense = 0
+accuracy = 0.9
+evasion = 0.0
+max_modifiers = 1
+party = PackedStringArray()
+master_volume = 0
+music_volume = 100
+sfx_volume = 100
+battle_timer = true
